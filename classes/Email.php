@@ -17,13 +17,25 @@ class Email {
     }
 
     public function enviarConfirmacion() {
+
         $mail = new PHPMailer();
+
+        /*
         $mail->isSMTP();
         $mail->Host = 'smtp.mailtrap.io';
         $mail->SMTPAuth = true;
         $mail->Port = 2525;
         $mail->Username = '0acaf3d38550b4';
         $mail->Password = '0b59277437f7b4';
+        */
+        // Configurar SMTP
+        $mail->isSMTP();
+        $mail->Host = $_ENV['MAIL_HOST'];
+        $mail->SMTPAuth = true;
+        $mail->Username = $_ENV['MAIL_USER'];
+        $mail->Password = $_ENV['MAIL_PASSWORD'];
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = $_ENV['MAIL_PORT'];
 
         $mail->setFrom('cuentas@uptask.com');
         $mail->addAddress('cuentas@uptask.com', 'uptask.com');
@@ -35,8 +47,8 @@ class Email {
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Has creado tu cuenta en 
             UpTask, solo debes confirmarla en el siguiente enlace</p>";
-        $contenido .= "<p>Presiona aquí: <a href='https://dry-plateau-73245.herokuapp.com/confirmar" .
-            "?token=" . $this->token . "'>Confirmar Cuenta</a></p>";
+        $contenido .= "<p>Presiona aquí: <a href='" . $_ENV['SERVER_HOST'] . "?token=" . 
+        $this->token . "'>Confirmar Cuenta</a></p>";
         $contenido .= "<p>Si tu no creaste esta cuenta, puedes ignorar este mensaje</p>";
         $contenido .= '</html>';
 
@@ -47,13 +59,24 @@ class Email {
     }
 
     public function enviarInstrucciones() {
+
         $mail = new PHPMailer();
+        /*
         $mail->isSMTP();
         $mail->Host = 'smtp.mailtrap.io';
         $mail->SMTPAuth = true;
         $mail->Port = 2525;
         $mail->Username = '69808259e7bb1a';
         $mail->Password = '557e3f309c14c1';
+        */
+        // Configurar SMTP
+        $mail->isSMTP();
+        $mail->Host = $_ENV['MAIL_HOST'];
+        $mail->SMTPAuth = true;
+        $mail->Username = $_ENV['MAIL_USER'];
+        $mail->Password = $_ENV['MAIL_PASSWORD'];
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = $_ENV['MAIL_PORT'];
 
         $mail->setFrom('cuentas@uptask.com');
         $mail->addAddress('cuentas@uptask.com', 'uptask.com');
@@ -65,7 +88,7 @@ class Email {
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Parece que has olvidado tu
         password, sigue el siguiente enlace para recuperarlo</p>";
-        $contenido .= "<p>Presiona aquí: <a href='https://dry-plateau-73245.herokuapp.com/reestablecer?token=" . 
+        $contenido .= "<p>Presiona aquí: <a href='" . $_ENV['SERVER_HOST'] . "reestablecer?token=" . 
         $this->token . "'>Reestablecer Password</a></p>";
         $contenido .= "<p>Si tu no creaste esta cuenta, puedes ignorar este mensaje</p>";
         $contenido .= '</html>';
