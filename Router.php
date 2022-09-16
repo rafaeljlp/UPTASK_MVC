@@ -32,7 +32,9 @@ class Router
         } else {
             // $fn = $this->postRoutes[$currentUrl] ?? null;
             $fn = $this->postRoutes[$splitURL[0]] ?? null;
-        }        
+        }
+        
+        debuguear($fn);
         
         if ( $fn ) {
             // Call user fn va a llamar una función cuando no sabemos cual sera
