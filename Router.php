@@ -24,7 +24,7 @@ class Router
 
         //dividimos la URL actual cada vez que exista un '?' eso indica que se están pasando variables por la url
         $splitURL = explode('?', $currentUrl);
-        // debuguear($splitURL);
+        debuguear($splitURL);
 
         if ($method === 'GET') {
             // $fn = $this->getRoutes[$currentUrl] ?? null;
@@ -33,8 +33,6 @@ class Router
             // $fn = $this->postRoutes[$currentUrl] ?? null;
             $fn = $this->postRoutes[$splitURL[0]] ?? null;
         }
-        
-        debuguear($fn);
         
         if ( $fn ) {
             // Call user fn va a llamar una función cuando no sabemos cual sera
