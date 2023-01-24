@@ -130,7 +130,7 @@ class Email {
         $mail->setFrom('lopezr@ralphtechnology.com', 'Your Name');
         $mail->addReplyTo('lopezr@ralphtechnology.com', 'Your Name');
         $mail->addAddress('rafaeljlp@gmail.com', 'Receiver Name');
-        $mail->Subject = 'Testing PHPMailer';
+        $mail->Subject = 'Reestablece tu password';
         $mail->msgHTML(file_get_contents('message.html'), __DIR__);
         $mail->Body = 'This is a plain text message body';
         //$mail->addAttachment('test.txt');
