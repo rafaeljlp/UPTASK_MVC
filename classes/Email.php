@@ -80,7 +80,8 @@ class Email {
         $mail->SMTPAuth = true;
         $mail->Username = $_ENV['MAIL_USER'];
         $mail->Password = $_ENV['MAIL_PASSWORD'];
-        $mail->SMTPSecure = 'tls';
+        // $mail->SMTPSecure = 'tls';
+        $mail->SMTPSecure = 'ssl';
         $mail->Port = $_ENV['MAIL_PORT'];
 
         $mail->setFrom('cuentas@uptask.com');
