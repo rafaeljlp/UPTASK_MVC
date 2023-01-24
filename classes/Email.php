@@ -35,6 +35,7 @@ class Email {
         // Configurar SMTP
         $mail->isSMTP();
         $mail->Host = $_ENV['MAIL_HOST'];
+        debuguear($mail);
         $mail->SMTPAuth = true;
         $mail->Username = $_ENV['MAIL_USER'];
         $mail->Password = $_ENV['MAIL_PASSWORD'];
