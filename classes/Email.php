@@ -23,14 +23,15 @@ class Email {
     public function enviarConfirmacion() {
 
         $mail = new PHPMailer();
-
+        /*
         $mail->isSMTP();
         $mail->Host = 'smtp.mailtrap.io';
         $mail->SMTPAuth = true;
         $mail->Port = 2525;
         $mail->Username = '0acaf3d38550b4';
         $mail->Password = '0b59277437f7b4';
- 
+        */
+
         // Configurar SMTP
 
         $mail->isSMTP();
@@ -69,14 +70,15 @@ class Email {
     public function enviarInstrucciones() {
 
         $mail = new PHPMailer();
-
+        /*
         $mail->isSMTP();
         $mail->Host = 'smtp.mailtrap.io';
         $mail->SMTPAuth = true;
         $mail->Port = 2525;
         $mail->Username = '69808259e7bb1a';
         $mail->Password = '557e3f309c14c1';
-
+        */
+        
         // Configurar SMTP
 
         $mail->isSMTP();
