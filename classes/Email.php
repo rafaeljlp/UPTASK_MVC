@@ -34,6 +34,7 @@ class Email {
         */
         // Configurar SMTP
         $mail->isSMTP();
+        $mail->SMTPDebug = 2;
         $mail->Host = $_ENV['MAIL_HOST'];        
         $mail->SMTPAuth = true;
         $mail->Username = $_ENV['MAIL_USER'];
@@ -42,8 +43,10 @@ class Email {
         $mail->SMTPSecure = 'ssl';
         $mail->Port = $_ENV['MAIL_PORT'];
 
-        $mail->setFrom('cuentas@uptask.com');
-        $mail->addAddress('cuentas@uptask.com', 'uptask.com');
+        // $mail->setFrom('cuentas@uptask.com');
+        // $mail->addAddress('cuentas@uptask.com', 'uptask.com');
+        $mail->setFrom( $_ENV['MAIL_USER']);
+        $mail->addAddress($this->email, 'uptask.com');
         $mail->Subject = 'Confirma tu cuenta';
 
         $mail->isHTML(TRUE);
@@ -84,8 +87,10 @@ class Email {
         $mail->SMTPSecure = 'ssl';
         $mail->Port = $_ENV['MAIL_PORT'];
 
-        $mail->setFrom('cuentas@uptask.com');
-        $mail->addAddress('cuentas@uptask.com', 'uptask.com');
+        // $mail->setFrom('cuentas@uptask.com');
+        // $mail->addAddress('cuentas@uptask.com', 'uptask.com');
+        $mail->setFrom( $_ENV['MAIL_USER']);
+        $mail->addAddress($this->email, 'uptask.com');
         $mail->Subject = 'Reestablece tu password';
 
         $mail->isHTML(TRUE);
