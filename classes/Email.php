@@ -24,56 +24,34 @@ class Email {
 
         $mail = new PHPMailer();
 
-        /*
         $mail->isSMTP();
         $mail->Host = 'smtp.mailtrap.io';
         $mail->SMTPAuth = true;
         $mail->Port = 2525;
         $mail->Username = '0acaf3d38550b4';
         $mail->Password = '0b59277437f7b4';
-        */
+ 
         // Configurar SMTP
-        /*
+
         $mail->isSMTP();
         $mail->SMTPDebug = 2;
         $mail->Host = $_ENV['MAIL_HOST'];        
         $mail->SMTPAuth = true;
         $mail->Username = $_ENV['MAIL_USER'];
         $mail->Password = $_ENV['MAIL_PASSWORD'];
-        // $mail->SMTPSecure = 'tls';
-        $mail->SMTPSecure = 'ssl';
+        $mail->SMTPSecure = 'tls';
+        // $mail->SMTPSecure = 'ssl';
         $mail->Port = $_ENV['MAIL_PORT'];
 
-        // $mail->setFrom('cuentas@uptask.com');
-        // $mail->addAddress('cuentas@uptask.com', 'uptask.com');
-        $mail->setFrom( $_ENV['MAIL_USER']);
-        $mail->addAddress($this->email, 'uptask.com');
+        $mail->setFrom('cuentas@uptask.com');
+        $mail->addAddress('cuentas@uptask.com', 'uptask.com');
+        // $mail->setFrom( $_ENV['MAIL_USER']);
+        // $mail->addAddress($this->email, 'uptask.com');
         $mail->Subject = 'Confirma tu cuenta';
 
         $mail->isHTML(TRUE);
         $mail->CharSet = 'UTF-8';
-        */
-
-        $mail->isSMTP();
-        $mail->SMTPDebug = 2;
-        $mail->Host = 'smtp.hostinger.com';
-        $mail->Port = 465;
-        $mail->SMTPAuth = true;
-        $mail->Username = 'lopezr@ralphtechnology.com';
-        $mail->Password = 'YOUR PASSWORD HERE';
-        $mail->setFrom('lopezr@ralphtechnology.com', 'Your Name');
-        $mail->addReplyTo('lopezr@ralphtechnology.com', 'Your Name');
-        $mail->addAddress('rafaeljlp@gmail.com', 'Receiver Name');
-        $mail->Subject = 'Testing PHPMailer';
-        $mail->msgHTML(file_get_contents('message.html'), __DIR__);
-        $mail->Body = 'This is a plain text message body';
-        //$mail->addAttachment('test.txt');
-        if (!$mail->send()) {
-             echo 'Mailer Error: ' . $mail->ErrorInfo;
-        } else {
-             echo 'The email message was sent.';
-        }
-
+        
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Has creado tu cuenta en 
             UpTask, solo debes confirmarla en el siguiente enlace</p>";
@@ -91,54 +69,33 @@ class Email {
     public function enviarInstrucciones() {
 
         $mail = new PHPMailer();
-        /*
+
         $mail->isSMTP();
         $mail->Host = 'smtp.mailtrap.io';
         $mail->SMTPAuth = true;
         $mail->Port = 2525;
         $mail->Username = '69808259e7bb1a';
         $mail->Password = '557e3f309c14c1';
-        */
+
         // Configurar SMTP
-        /*
+
         $mail->isSMTP();
         $mail->Host = $_ENV['MAIL_HOST'];
         $mail->SMTPAuth = true;
         $mail->Username = $_ENV['MAIL_USER'];
         $mail->Password = $_ENV['MAIL_PASSWORD'];
-        // $mail->SMTPSecure = 'tls';
-        $mail->SMTPSecure = 'ssl';
+        $mail->SMTPSecure = 'tls';
+        // $mail->SMTPSecure = 'ssl';
         $mail->Port = $_ENV['MAIL_PORT'];
 
-        // $mail->setFrom('cuentas@uptask.com');
-        // $mail->addAddress('cuentas@uptask.com', 'uptask.com');
-        $mail->setFrom( $_ENV['MAIL_USER']);
-        $mail->addAddress($this->email, 'uptask.com');
+        $mail->setFrom('cuentas@uptask.com');
+        $mail->addAddress('cuentas@uptask.com', 'uptask.com');
+        // $mail->setFrom( $_ENV['MAIL_USER']);
+        // $mail->addAddress($this->email, 'uptask.com');
         $mail->Subject = 'Reestablece tu password';
 
         $mail->isHTML(TRUE);
-        $mail->CharSet = 'UTF-8';
-        */
-
-        $mail->isSMTP();
-        $mail->SMTPDebug = 2;
-        $mail->Host = 'smtp.hostinger.com';
-        $mail->Port = 465;
-        $mail->SMTPAuth = true;
-        $mail->Username = 'lopezr@ralphtechnology.com';
-        $mail->Password = 'YOUR PASSWORD HERE';
-        $mail->setFrom('lopezr@ralphtechnology.com', 'Your Name');
-        $mail->addReplyTo('lopezr@ralphtechnology.com', 'Your Name');
-        $mail->addAddress('rafaeljlp@gmail.com', 'Receiver Name');
-        $mail->Subject = 'Reestablece tu password';
-        $mail->msgHTML(file_get_contents('message.html'), __DIR__);
-        $mail->Body = 'This is a plain text message body';
-        //$mail->addAttachment('test.txt');
-        if (!$mail->send()) {
-             echo 'Mailer Error: ' . $mail->ErrorInfo;
-        } else {
-             echo 'The email message was sent.';
-        }
+        $mail->CharSet = 'UTF-8';       
 
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Parece que has olvidado tu
@@ -154,6 +111,4 @@ class Email {
         $mail->send();
 
     }
-
-
 }
