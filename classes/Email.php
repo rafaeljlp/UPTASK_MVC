@@ -33,6 +33,7 @@ class Email {
         $mail->Password = '0b59277437f7b4';
         */
         // Configurar SMTP
+        /*
         $mail->isSMTP();
         $mail->SMTPDebug = 2;
         $mail->Host = $_ENV['MAIL_HOST'];        
@@ -51,6 +52,27 @@ class Email {
 
         $mail->isHTML(TRUE);
         $mail->CharSet = 'UTF-8';
+        */
+
+        $mail->isSMTP();
+        $mail->SMTPDebug = 2;
+        $mail->Host = 'smtp.hostinger.com';
+        $mail->Port = 587;
+        $mail->SMTPAuth = true;
+        $mail->Username = 'lopezr@ralphtechnology.com';
+        $mail->Password = 'YOUR PASSWORD HERE';
+        $mail->setFrom('lopezr@ralphtechnology.com', 'Your Name');
+        $mail->addReplyTo('lopezr@ralphtechnology.com', 'Your Name');
+        $mail->addAddress('rafaeljlp@gmail.com', 'Receiver Name');
+        $mail->Subject = 'Testing PHPMailer';
+        $mail->msgHTML(file_get_contents('message.html'), __DIR__);
+        $mail->Body = 'This is a plain text message body';
+        //$mail->addAttachment('test.txt');
+        if (!$mail->send()) {
+             echo 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+             echo 'The email message was sent.';
+        }
 
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Has creado tu cuenta en 
