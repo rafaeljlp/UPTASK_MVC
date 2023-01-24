@@ -57,7 +57,7 @@ class Email {
         $mail->isSMTP();
         $mail->SMTPDebug = 2;
         $mail->Host = 'smtp.hostinger.com';
-        $mail->Port = 587;
+        $mail->Port = 465;
         $mail->SMTPAuth = true;
         $mail->Username = 'lopezr@ralphtechnology.com';
         $mail->Password = 'YOUR PASSWORD HERE';
