@@ -40,8 +40,8 @@ class Email {
         $mail->SMTPAuth = true;
         $mail->Username = $_ENV['MAIL_USER'];
         $mail->Password = $_ENV['MAIL_PASSWORD'];
-        $mail->SMTPSecure = 'tls';
-        // $mail->SMTPSecure = 'ssl';
+        // $mail->SMTPSecure = 'tls';
+        $mail->SMTPSecure = 'ssl';
         $mail->Port = $_ENV['MAIL_PORT'];
 
         $mail->setFrom('cuentas@uptask.com');
@@ -78,7 +78,7 @@ class Email {
         $mail->Username = '69808259e7bb1a';
         $mail->Password = '557e3f309c14c1';
         */
-        
+
         // Configurar SMTP
 
         $mail->isSMTP();
@@ -86,8 +86,8 @@ class Email {
         $mail->SMTPAuth = true;
         $mail->Username = $_ENV['MAIL_USER'];
         $mail->Password = $_ENV['MAIL_PASSWORD'];
-        $mail->SMTPSecure = 'tls';
-        // $mail->SMTPSecure = 'ssl';
+        // $mail->SMTPSecure = 'tls';
+        $mail->SMTPSecure = 'ssl';
         $mail->Port = $_ENV['MAIL_PORT'];
 
         $mail->setFrom('cuentas@uptask.com');
